@@ -2,6 +2,7 @@ import ACTION_TYPES from "../actions/actionTypes";
 const initialState = {
   count: 0,
   step: 1,
+  newProps:true
 };
 
 function reducer(state = initialState, action) {

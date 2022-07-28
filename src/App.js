@@ -13,6 +13,7 @@ function App(props) {
   const handlerStep = ({target:{value}}) =>{
     dispatch(CounterCreators.setStep(Number(value)));
   }
+  //alert('app')
   return (
     <div>
       <h2>Count: {count}</h2>
@@ -23,9 +24,7 @@ function App(props) {
   );
 }
 
-function mapStateToProps(state) {
-  return state;
-}
+const mapStateToProps = ({count, step}) => ({count, step})
 
 export default connect(mapStateToProps)(App);
 
