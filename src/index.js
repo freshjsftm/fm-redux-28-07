@@ -7,12 +7,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const initialState = {
-  count:0,
-  testProp:77
+  count: 0,
 };
 
 function reducer(state = initialState, action) {
-  return { ...state };
+  switch (action.type) {
+    case "INCREMENT": {
+      return { count: state.count + 1 };
+    }
+    case "DECREMENT": {
+      return { count: state.count - 1 };
+    }
+    default:
+      return state;
+  }
 }
 
 const store = legacy_createStore(reducer);
@@ -20,9 +28,9 @@ const store = legacy_createStore(reducer);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
   // </React.StrictMode>
 );
 
