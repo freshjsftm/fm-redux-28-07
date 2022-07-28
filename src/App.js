@@ -1,19 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import * as CounterCreators from './actions/counterCreators';
 
 function App(props) {
   const { count, step, dispatch } = props;
   const increment = () => {
-    const action = { type: "INCREMENT" };
-    dispatch(action);
+    dispatch(CounterCreators.increment());
   };
   const decrement = () => {
-    const action = { type: "DECREMENT" };
-    dispatch(action);
+    dispatch(CounterCreators.decrement());
   };
   const handlerStep = ({target:{value}}) =>{
-    const action = { type: "SET_STEP", newStep: Number(value) };
-    dispatch(action);
+    dispatch(CounterCreators.setStep(Number(value)));
   }
   return (
     <div>
