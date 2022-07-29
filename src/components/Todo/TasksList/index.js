@@ -32,7 +32,7 @@ const TasksList = (props) => {
     </section>
   );
 };
-const mapStateToProps = ({ tasks }) => ({ tasks });
+const mapStateToProps = ({ todo }) => todo;
 const mapDispatchToProps = (dispatch) => ({
   updateTaskDispatch: (id, values) => dispatch(updateTask(id, values)),
   deleteTaskDispatch: (id) => dispatch(deleteTask(id)),
