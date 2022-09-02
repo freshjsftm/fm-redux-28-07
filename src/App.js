@@ -3,11 +3,13 @@ import React from "react";
 // import TaskForm from "./components/Todo/TaskForm";
 // import TasksList from "./components/Todo/TasksList";
 import UserForm from "./components/Users/UserForm";
+import UserList from "./components/Users/UserList";
 
 function App(props) {
   return (
     <>
       <UserForm />
+      <UserList />
       {/* <Counter />
       <hr /><hr /><hr />
       <TaskForm />

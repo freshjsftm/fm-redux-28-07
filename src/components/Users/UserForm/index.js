@@ -6,7 +6,6 @@ import * as ActionsUserCreators from "../../../actions/userCreators";
 const UserForm = (props) => {
   const {createUserRequestDispatch} = props;
   const onSubmit = (values, formikBag) => {
-    //console.log("post:", values);
     createUserRequestDispatch(values);
     formikBag.resetForm();
   };

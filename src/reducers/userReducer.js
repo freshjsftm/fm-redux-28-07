@@ -10,6 +10,7 @@ function userReducer(state =initialState, action){
       return {
         ...state,
         isFetching:true,
+        error:null
       }
     }
     case ACTION_TYPES.CREATE_USER_SUCCESS:{
@@ -17,6 +18,7 @@ function userReducer(state =initialState, action){
       return {
         ...state,
         isFetching:false,
+        error:null,
         users: [...state.users, user]
       }
     }
