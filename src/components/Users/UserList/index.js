@@ -7,14 +7,9 @@ const UserList = (props) => {
   const { users, isFetching, error } = useSelector(
     ({ usersState }) => usersState
   );
-  //const dispatch = useDispatch();
   const {getUsersRequest} = bindActionCreators(ActionsUserCreators, useDispatch());
-  // const getUsersRequestDispatch = ({ limit, offset }) =>
-  //   dispatch(ActionsUserCreators.getUsersRequest({ limit, offset }));
   const loadMore = () => getUsersRequest({ offset: users.length });
-  useEffect(() => {
-    loadMore();
-  }, []);
+  useEffect(() => { loadMore(); }, []);
   return (
     <section>
       <h2>Users List</h2>
