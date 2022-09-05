@@ -5,13 +5,18 @@ import { Formik, Form, Field } from "formik";
 import * as ActionsUserCreators from "../../../actions/userCreators";
 
 const UserForm = (props) => {
-  const {createUserRequest} = bindActionCreators(ActionsUserCreators, useDispatch())
+  const { createUserRequest } = bindActionCreators(
+    ActionsUserCreators,
+    useDispatch()
+  );
   const onSubmit = (values, formikBag) => {
-    createUserRequest(values);
+    createUserRequest({values});
     formikBag.resetForm();
   };
   return (
-    <Formik onSubmit={onSubmit} initialValues={{
+    <Formik
+      onSubmit={onSubmit}
+      initialValues={{
         firstName: "",
         lastName: "",
         email: "",
