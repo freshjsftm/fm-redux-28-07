@@ -7,15 +7,25 @@ const UserList = (props) => {
   const { users, isFetching, error } = useSelector(
     ({ usersState }) => usersState
   );
-  const {getUsersRequest} = bindActionCreators(ActionsUserCreators, useDispatch());
+  const { getUsersRequest, clearUserError } = bindActionCreators(
+    ActionsUserCreators,
+    useDispatch()
+  );
   const loadMore = () => getUsersRequest({ offset: users.length });
-  useEffect(() => { loadMore(); }, []);
+  useEffect(() => {
+    loadMore();
+  }, []);
   return (
     <section>
       <h2>Users List</h2>
       <button onClick={loadMore}>Load more</button>
       {isFetching && <p>Loading...</p>}
-      {error && <p>{error.message}</p>}
+      {error && (
+        <div style={{ color: "red", backgroundColor: "#ff000033" }}>
+          <p>{error.message}</p>
+          <button onClick={clearUserError}>X</button>
+        </div>
+      )}
       <ul
         style={{
           maxHeight: "60vh",

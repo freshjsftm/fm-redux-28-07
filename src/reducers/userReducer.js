@@ -31,6 +31,9 @@ const handlers = {
   }),
   [ACTION_TYPES.GET_USERS_ERROR]:handlerError,
   [ACTION_TYPES.CREATE_USER_ERROR]:handlerError,
+  [ACTION_TYPES.CLEAR_USER_ERROR]:produce((draft, action)=>{
+    draft.error = null;
+  })
 }
 
 function userReducer(state = initialState, action) {
