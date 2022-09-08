@@ -4,9 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as ActionsUserCreators from "../../../actions/userCreators";
 
 const UserList = (props) => {
-  const { users, isFetching, error } = useSelector(
-    ({ usersState }) => usersState
-  );
+  const { users, isFetching, error } = useSelector(({ usersState }) => usersState);
   const { getUsersRequest, clearUserError } = bindActionCreators(
     ActionsUserCreators,
     useDispatch()
